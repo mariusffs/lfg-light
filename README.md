@@ -1,5 +1,6 @@
-# lfg-light
+# LFG Light
 Script to modify Bungie's LFG service for Destiny 2
+![LFG Light](https://raw.githubusercontent.com/mariusffs/lfg-light/main/screenshots/fireteam-list.png)
 
 ## Features
 - A compact / slimmed down / more efficient UI/UX
