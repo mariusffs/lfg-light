@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.8
+// @version      0.9
 // @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, remove unnecessary UI, add links to raid.report and dungeon.report (Stadia users not supported, some issues with multi-platform accounts for PC). Add page reloader for 10s interval until disabled or tab is closed. 
 // @author       mariusffs
+// @run-at       document-start
 // @include      https://www.bungie.net/en/ClanV2/PublicFireteam*
 // @include      https://www.bungie.net/en/ClanV2/FireteamSearch*
 // @grant        none
@@ -345,16 +346,18 @@ function mainScript() {
 		// Look up and define current platform
 		var bungieLocalStorage = JSON.parse(localStorage.getItem("fireteamOptions"));
 		var platform;
-		switch (bungieLocalStorage.allView.fireteamPlat) {
-			case '1':
-				platform = "ps";
-				break;
-			case '2':
-				platform = "xb";
-				break;
-			case '4':
-				platform = "pc";
-				break;
+		if (bungieLocalStorage !== null) {
+			switch (bungieLocalStorage.allView.fireteamPlat) {
+				case '1':
+					platform = "ps";
+					break;
+				case '2':
+					platform = "xb";
+					break;
+				case '4':
+					platform = "pc";
+					break;
+			}
 		}
 
 		// Add navigation
