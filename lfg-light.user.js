@@ -206,7 +206,7 @@ function mainScript() {
 				color: inherit;
 			}
 			.side-menu li a span.season-tag {
-				color: #547257;
+				color: #81ca88;
 				font-size: .6em;
 				vertical-align: super;
 			}
