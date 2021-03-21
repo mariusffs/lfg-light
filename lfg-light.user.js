@@ -35,13 +35,17 @@ function mainScript() {
 			.promo,
 			.promo ~ form > .fireteamBox,
 			.promo ~ form > .fireteamBox #fireteam-form .options-container > div:nth-of-type(2),
-			.fireteam-join-modal .fireteam-warning { 
+			.fireteam-join-modal .fireteam-warning,
+			.nav-kit.basic-sub-nav a.current:after,
+			.nav-kit.basic-sub-nav a:hover:after { 
 				display: none;
 			}
 			.search .container_bodyContent {
 				margin-top: 0;
 				height: 100vh !important;
 			}
+			.nav-kit.basic-sub-nav a.current { color: #ebbf24; }
+			.header-container .basic-sub-nav-Fireteams { padding: 0; }
 
 
 			/* Fireteam list */
