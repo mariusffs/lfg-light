@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.9
+// @version      0.91
 // @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, remove unnecessary UI, add links to raid.report and dungeon.report (Stadia users not supported, some issues with multi-platform accounts for PC). Add page reloader for 10s interval until disabled or tab is closed. 
 // @author       mariusffs
 // @run-at       document-start
@@ -48,20 +48,69 @@ function mainScript() {
 			.header-container .basic-sub-nav-Fireteams { padding: 0; }
 
 
+			/* Two column system */
+
+			.item-fireteam .item-fireteam-card .fireteam-content .title {
+				font-size: .8rem;
+				margin-bottom: 7px;
+			}
+			.item-fireteam .item-fireteam-card .fireteam-meta p.meta {
+				color: #9da9b9;
+				font-size: 8px;
+			}
+			.item-fireteam .item-fireteam-card .fireteam-meta p.owner.meta {
+				overflow: hidden;
+				width: 10px;
+				height: 16px;
+			}
+			.item-fireteam .item-fireteam-card .fireteam-content .player-slots .player-slot {
+				width: 15px;
+				height: 15px;
+				margin-right: 4px;
+			}
+			.react-gridmax .activity-icon {
+				min-width: 37px;
+				height: 35px;
+			}
+			li.item-fireteam {
+				width: 50%;
+			}
+			li.item-fireteam:nth-child(odd) {
+				border-right: 1px solid #2d3440;
+			}
+			.item-fireteam:last-child .item-fireteam-card {
+				border-bottom: 1px solid #2d3440;
+			}
+			.results-search-fireteams {
+				border-radius: 0;
+			}
+			.item-fireteam .item-fireteam-card:hover {
+				background: rgba(33,40,51,1);
+				box-shadow: 0 0 2px rgba(0,0,0,0.75) inset;
+				color: #ebbf24;
+			}
+			.results-search-fireteams {
+				box-shadow: 0 0 3px rgba(0,0,0,0.15);
+			}
+			
+
 			/* Fireteam list */
 
 			.FireteamSearch .container_bodyContent .header .header-container {
-				padding-bottom: 10px;
-				margin-bottom: 10px;
-				border-radius: 0 0 5px 5px;
+				margin-bottom: 2px;
+				border-radius: 0;
+				box-shadow: 0 0 3px rgba(0,0,0,0.15);
 			}
 			.fireteam-content .badge-container {
 				display: none;
 			}
 			.FireteamSearch .options-container {
-				border-radius: 5px;
-				margin-bottom: 10px;
+				border-radius: 0px;
+				margin-bottom: 2px;
 				border-bottom: 0;
+			}
+			.promo ~ form > .fireteamBox #fireteam-form .options-container > div:last-child {
+				margin-right: 0;
 			}
 			.promo ~ form > .fireteamBox.visible {
 				display: flex;
@@ -102,6 +151,9 @@ function mainScript() {
 				height: 80px;
 				width: 80px;
 			}
+			.activity-header .fireteam-actions .button {
+				margin-top: 15px;
+			}
 			.activity-header .section-header {
 				margin: 0 0 0 0 !important;
 				padding: 0 0 0 0 !important;
@@ -116,6 +168,11 @@ function mainScript() {
 			a.link-raid-report:hover {
 				color: #ebbf24;
 				opacity: 1;
+			}
+			p.explanation {
+				line-height: 1.2;
+				color: rgba(255,255,255,0.6);
+				font-size: 11px;
 			}
 			
 
