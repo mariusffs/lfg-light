@@ -290,7 +290,7 @@ function mainScript() {
 				color: #fff;
 				cursor: pointer;
 				text-shadow: 0 0 1px rgba(0,0,0,0.75);
-				transition: all .3s ease-in-out
+				transition: all .5s ease-in-out;
 			}
 			.side-menu #refresher:hover,
 			.side-menu #refresher.active:hover { 
@@ -301,11 +301,11 @@ function mainScript() {
 			.side-menu #refresher.active {
 				opacity: .8;
 				color: #ebbf24;
-				-webkit-animation: rotating 6s ease-in-out infinite;
-				-moz-animation: rotating 6s ease-in-out infinite;
-				-ms-animation: rotating 6s ease-in-out infinite;
-				-o-animation: rotating 6s ease-in-out infinite;
-				animation: rotating 6s ease-in-out infinite;
+				-webkit-animation: rotating 3s linear infinite !important;
+				-moz-animation: rotating 3s linear infinite !important;
+				-ms-animation: rotating 3s linear infinite !important;
+				-o-animation: rotating 3s linear infinite !important;
+				animation: rotating 3s linear infinite !important;
 			}
 			@-webkit-keyframes rotating /* Safari and Chrome */ {
 				from {
