@@ -641,7 +641,8 @@ function mainScript() {
 					createMenu();
 					addReportLinks();
 				}
-				if (document.querySelector(".character-selector-label ~ div > .js-select-box").getAttribute("size") !=="3") {
+				var joinModalSelect = document.querySelector(".character-selector-label ~ div > .js-select-box");
+				if (joinModalSelect !== null && joinModalSelect.getAttribute("size") !=="3") {
 					showAllCharacters();
 				}
 			}, 500);
