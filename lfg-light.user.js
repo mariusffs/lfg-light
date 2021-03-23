@@ -48,7 +48,7 @@ function mainScript() {
 			.header-container .basic-sub-nav-Fireteams { padding: 0; }
 
 
-			/* Two column system */
+			/* Fireteam list: Two column system */
 
 			.item-fireteam .item-fireteam-card .fireteam-content .title {
 				font-size: .8rem;
@@ -123,8 +123,9 @@ function mainScript() {
 			.lfg-pandl-settings:hover {
 				color: #fff;
 			}
-			.lfglight-login-button {
-				margin-left: 10px;
+			.create-fireteam .lfglight-login-button,
+			.create-fireteam .btn_openCreateFireteam {
+				transform: scale(0.9);
 			}
 
 
