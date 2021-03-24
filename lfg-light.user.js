@@ -94,6 +94,62 @@ function mainScript() {
 			}
 			
 
+			/* Guardian list: Two column system */
+
+			.users-fireteam {
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+			.user-fireteam {
+				width: 49%;
+				border: 1px solid rgba(255,255,255,0.3);
+				border-radius: 4px;
+			}
+			.user-fireteam.leader {
+				border: 1px solid rgba(254,205,58,0.2);
+				width: 100%;
+			}
+			div.user-fireteam.empty:only-of-type {
+				width: 100%;
+			}
+			.user-fireteam.leader .leader-chip {
+				top: 0;
+				left: 0;
+				opacity: 0.2;
+			}
+			.user-fireteam .user-data {
+				font-size: 14px;
+			}
+			.user-fireteam .user-data .user-container .display-name {
+				font-size: 1em;
+			}
+			.adminbuttons {
+				transform: scale(0.9);
+			}
+			.adminbuttons .button {
+				margin-right: 0;
+			}
+			.user-fireteam .user-data .character {
+				font-size: 0.8em;
+				color: rgba(255,255,255,0.6);
+				margin: 3px 0 2px;
+			}
+			.user-fireteam .user-data .user-container span {
+				font-size: inherit;
+				color: inherit;
+				opacity: 1;
+				margin-top: 0;
+				margin-left: 0;
+			}
+			.FireteamSearch .fireteam-container {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			ul.users-fireteam { width: 100%; }
+
 			/* Fireteam list */
 
 			.FireteamSearch .container_bodyContent .header .header-container {
@@ -162,9 +218,8 @@ function mainScript() {
 			}
 			a.link-raid-report {
 				color: #ebbf24;
-				margin-left: 10px;
-				font-weight: 600;
 				opacity: .8;
+				font-size: 0.8em;
 			}
 			a.link-raid-report:hover {
 				color: #ebbf24;
@@ -482,7 +537,7 @@ function mainScript() {
 					innerHTML: "Login",
 				});
 				document.querySelector(".create-fireteam").appendChild(loginButton);
-			}			
+			}
 		}
 
 		// Toggle Platform and Language via settings icon
@@ -618,10 +673,10 @@ function mainScript() {
 							Object.assign(reportLink, {
 								href: reportType + platform + "/" + platformId,
 								className: "link-raid-report",
-								innerHTML: "[" + reportTypeName + "]",
+								innerHTML: reportTypeName + " <i class=\"material-icons link-icon\">link</i>",
 								target: "_blank",
 							});
-							links[i].parentNode.appendChild(reportLink);
+							links[i].parentNode.parentNode.appendChild(reportLink);
 						}
 						clearInterval(window.pollForUsers);
 					}
