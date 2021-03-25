@@ -8,6 +8,7 @@
 // @include      https://www.bungie.net/en/ClanV2/PublicFireteam*
 // @include      https://www.bungie.net/en/ClanV2/FireteamSearch*
 // @grant        none
+// @require      https://platform.twitter.com/widgets.js
 // ==/UserScript==
 
 function removeFlash() {
@@ -476,6 +477,19 @@ function mainScript() {
 					break;
 			}
 		}
+
+		function createTwitterFeed() {
+			var twitterFeed = document.createElement('a');
+			Object.assign(twitterFeed, {
+				href: "https://twitter.com/BungieHelp",
+				className: "twitter-timeline"
+			});
+			twitterFeed.setAttribute("data-theme","dark");
+			twitterFeed.setAttribute("data-tweet-limit","1");
+			twitterFeed.setAttribute("data-chrome","nofooter noheader transparent noborders");
+			document.getElementsByClassName('header')[0].append(twitterFeed);
+		}
+		createTwitterFeed();
 
 		// Add navigation
 		function createMenu() {
