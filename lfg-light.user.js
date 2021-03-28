@@ -184,6 +184,20 @@ function mainScript() {
 			.create-fireteam .btn_openCreateFireteam {
 				transform: scale(0.9);
 			}
+			/* Tidy up view when you are owner and have 3 buttons */
+			.user-fireteam.owner:not(.self) {
+				padding: 0 25px;
+			}
+			.user-fireteam.owner .adminbuttons {
+				flex-direction: column;
+				transform: scale(0.65);
+			}
+			.user-fireteam.owner .adminbuttons .button {
+				margin-bottom: 10px;
+			}
+			.user-fireteam.owner .adminbuttons .button:last-of-type {
+				margin-bottom: 0px;
+			}
 
 
 			/* Guardian List */
