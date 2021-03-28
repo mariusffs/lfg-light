@@ -492,19 +492,6 @@ function mainScript() {
 			}
 		}
 
-		function createTwitterFeed() {
-			var twitterFeed = document.createElement('a');
-			Object.assign(twitterFeed, {
-				href: "https://twitter.com/BungieHelp",
-				className: "twitter-timeline"
-			});
-			twitterFeed.setAttribute("data-theme","dark");
-			twitterFeed.setAttribute("data-tweet-limit","1");
-			twitterFeed.setAttribute("data-chrome","nofooter noheader transparent noborders");
-			document.getElementsByClassName('header')[0].append(twitterFeed);
-		}
-		createTwitterFeed();
-
 		// Add navigation
 		function createMenu() {
 			var sideMenu = document.createElement('div');
@@ -771,6 +758,24 @@ function mainScript() {
 		}
 
 		toggleButton.addEventListener("click",toggleReloaderState);
+
+
+		// Add the last tweet from @BungieHelp to the bottom of a page
+		function createTwitterFeed() {
+			var twitterFeed = document.createElement('a');
+			Object.assign(twitterFeed, {
+				href: "https://twitter.com/BungieHelp",
+				className: "twitter-timeline"
+			});
+			twitterFeed.setAttribute("data-theme","dark");
+			twitterFeed.setAttribute("data-tweet-limit","1");
+			twitterFeed.setAttribute("data-chrome","nofooter noheader transparent noborders");
+			document.getElementsByClassName('header')[0].append(twitterFeed);
+		}
+		if (!reloaderActive) {
+			createTwitterFeed();
+		}
+
 	});
 }
 
