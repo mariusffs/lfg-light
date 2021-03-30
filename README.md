@@ -5,7 +5,9 @@ Script to modify Bungie's LFG service for Destiny 2
 ## Features
 - A compact / slimmed down / more efficient UI/UX
 - New menu, drop downs be gone!
-- Links to raid.report or dungeon.report for all Guardians*
+- Look up Raid team members on raid.report (Default for PVE activities)
+- Look up Dungeon team members on dungeon.report
+- Look up Trials of Osiris team members on trials.report (Default for Crucible activities)
 - Reload timer, refresh page at a 10s interval
 - Keyboard shortcuts
 
@@ -18,8 +20,8 @@ Script to modify Bungie's LFG service for Destiny 2
 ## Support / notes
 - Only tested in Google Chrome
 - Only works on screens > 1023px
-- *Stadia guardians won't have links to raid/dungeon.report
-- *Some issues with links to multi-platform users regarding raid/dungeon.report
+- Stadia guardians won't have links to raid/dungeon/trials.report
+- *Some issues with links to multi-platform users regarding raid/dungeon/trials.report
 
 ## Keyboard shortcuts
 - 'R' - Toggle Reloader

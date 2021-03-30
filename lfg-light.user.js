@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.93
+// @version      0.94
 // @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, remove unnecessary UI, add links to raid.report and dungeon.report (Stadia users not supported, some issues with multi-platform accounts for PC). Add page reloader for 10s interval until disabled or tab is closed. 
 // @author       mariusffs
 // @run-at       document-start
@@ -477,17 +477,20 @@ function mainScript() {
 
 		// Look up and define current platform
 		var bungieLocalStorage = JSON.parse(localStorage.getItem("fireteamOptions"));
-		var platform;
+		var platform = {};
 		if (bungieLocalStorage !== null) {
 			switch (bungieLocalStorage.allView.fireteamPlat) {
 				case '1':
-					platform = "ps";
+					platform.raidDungeon = "ps";
+					platform.trialsReport = "2";
 					break;
 				case '2':
-					platform = "xb";
+					platform.raidDungeon = "xb";
+					platform.trialsReport = "1";
 					break;
 				case '4':
-					platform = "pc";
+					platform.raidDungeon = "pc";
+					platform.trialsReport = "3";
 					break;
 			}
 		}
@@ -641,7 +644,7 @@ function mainScript() {
 
 		// Slim down Create Fireteam modal for English Playstation users
 		function slimCreateFireteamMenu() {
-			if (platform == "ps" && bungieLocalStorage.allView.fireteamLang == "en") {
+			if (platform.raidDungeon == "ps" && bungieLocalStorage.allView.fireteamLang == "en") {
 				document.querySelector("body").classList.add("playstation");
 			}
 		}
@@ -671,22 +674,39 @@ function mainScript() {
 		
 		// Add links to look up guardians in fireteam on raid.report or dungeon.report
 		function addReportLinks() {
-			var reportType = (currentActivity == "15") ? "https://dungeon.report/" : "https://raid.report/";
-			var reportTypeName = (currentActivity == "15") ? "Dungeon Report" : "Raid Report";
-			var platformId;
-			if (platform !== undefined) { 
+			var reportType, reportTypeName, platformId, reportSlug, isTrialsReport;
+			switch (currentActivity) {
+				case '15':
+					reportType = "https://dungeon.report/";
+					reportTypeName = "Dungeon Report";
+					reportSlug = platform.raidDungeon;
+					break;
+				case '2':
+				case '3':
+					reportType = "https://trials.report/";
+					reportTypeName = "Trials Report";
+					isTrialsReport = true;
+					reportSlug = "report/" + platform.trialsReport;
+					break;
+				default:
+					reportType = "https://raid.report/";
+					reportTypeName = "Raid Report";
+					reportSlug = platform.raidDungeon;
+			}
+
+			if (platform.raidDungeon !== undefined) { 
 				window.pollForUsers = setInterval(function () {
 					if (document.querySelector("a.display-name") !== null) {
 						var links = document.querySelectorAll("a.display-name");
 						for (var i=0, n=links.length;i<n;i++) {
-							if (platform == "pc") {
+							if (platform == "pc" || isTrialsReport) {
 								platformId = links[i].href.substring(links[i].href.lastIndexOf("/")+1);
 							} else {
 								platformId = links[i].innerHTML;
 							}
 							var reportLink = document.createElement('a');
 							Object.assign(reportLink, {
-								href: reportType + platform + "/" + platformId,
+								href: reportType + reportSlug + "/" + platformId,
 								className: "link-raid-report",
 								innerHTML: reportTypeName + " <i class=\"material-icons link-icon\">link</i>",
 								target: "_blank",
