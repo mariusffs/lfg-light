@@ -7,6 +7,7 @@ Script to modify Bungie's LFG service for Destiny 2
 - New menu, drop downs be gone!
 - Links to raid.report or dungeon.report for all Guardians*
 - Reload timer, refresh page at a 10s interval
+- Keyboard shortcuts
 
 ## Installation
 1. Use [Google Chrome](https://www.google.com/chrome/)
@@ -19,3 +20,14 @@ Script to modify Bungie's LFG service for Destiny 2
 - Only works on screens > 1023px
 - *Stadia guardians won't have links to raid/dungeon.report
 - *Some issues with links to multi-platform users regarding raid/dungeon.report
+
+## Keyboard shortcuts
+- 'R' - Toggle Reloader
+- 'L' - Login (when not logged in)
+- 'L' - Leave Fireteam (when joined)
+- 'C' - Create Fireteam
+- 'Shift 1' - Jump to Raid: Deep Stone Crypt
+- '1' - Select first character (During join fireteam modal)
+- '2' - Select second character (During join fireteam modal)
+- '3' - Select third character (During join fireteam modal)
+- 'J' - Join fireteam

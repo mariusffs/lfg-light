@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.92
+// @version      0.93
 // @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, remove unnecessary UI, add links to raid.report and dungeon.report (Stadia users not supported, some issues with multi-platform accounts for PC). Add page reloader for 10s interval until disabled or tab is closed. 
 // @author       mariusffs
 // @run-at       document-start
@@ -564,7 +564,7 @@ function mainScript() {
 			} else {
 				settingsPanel.classList.add("visible");
 			}
-		}		
+		}
 
 		// Add a settings icon for the above toggle
 		function addSettings() {
@@ -774,6 +774,53 @@ function mainScript() {
 		}
 		if (!reloaderActive) {
 			createTwitterFeed();
+		}
+
+
+		// Keyboard shortcuts
+		document.onkeyup = function(e) {
+			let currentEl = document.activeElement;
+			let joinEl = document.querySelector("#modal-joinModal");
+			
+			if (currentEl && (currentEl.tagName.toLowerCase() !== "input") && joinEl == null) {
+				if (e.which == 82) { // 'R' to toggle reloader
+					toggleReloaderState();
+				} else if (e.shiftKey && e.which == 49) {
+					window.location = "https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=22";
+				} else if (e.which == 67) { // 'C' to Create Fireteam
+					let createButton = document.querySelector(".button.small.gold.btn_openCreateFireteam");
+					if (createButton !== null) {
+						createButton.click();
+					}
+				} else if (e.which == 76) {
+					let loginButton = document.querySelector(".lfglight-login-button");
+					if (loginButton !== null) { // 'L' to login
+						loginButton.click();
+					}
+					let leaveButton = document.querySelector(".btn_leaveFireteam");
+					if (leaveButton !== null) { // 'L' to leave Fireteam
+						leaveButton.click();
+					}
+				} else if (e.which == 74) { // 'J' to join Fireteam
+					let joinButton = document.querySelector(".btn_joinFireteam");
+					if (joinButton !== null && document.querySelector(".modal-container") == null) {
+						joinButton.click();
+					}
+				}
+			}
+			// Join Fireteam Modal: Select characters with '1-3' and join with 'J'
+			if (joinEl !== null) {
+				let char = [document.querySelector(".fireteam-join-modal div.select-box div.select-options div.select-option"), document.querySelector(".fireteam-join-modal div.select-box div.select-options div.select-option+div.select-option"), document.querySelector(".fireteam-join-modal div.select-box div.select-options div.select-option+div.select-option+div.select-option")];
+				if (char[0] !== null && e.which == 49) {
+					char[0].click();
+				} else if (char[1] !== null && e.which == 50) {
+					char[1].click();
+				} else if (char[2] !== null && e.which == 51) {
+					char[2].click();
+				} else if (e.which == 74) {
+					document.querySelector(".fireteam-join-modal .btn_joinFireteam").click();
+				}
+			}
 		}
 
 	});
