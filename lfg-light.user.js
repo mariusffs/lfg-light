@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.94
-// @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, remove unnecessary UI, add links to raid.report and dungeon.report (Stadia users not supported, some issues with multi-platform accounts for PC). Add page reloader for 10s interval until disabled or tab is closed. 
+// @version      0.95
+// @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, keyboard shortcuts, remove unnecessary UI, add links to raid.report, dungeon.report, trials.report. Add page reloader for 10s interval until disabled or tab is closed.
 // @author       mariusffs
 // @run-at       document-start
 // @include      https://www.bungie.net/en/ClanV2/PublicFireteam*
@@ -319,7 +319,9 @@ function mainScript() {
 			.side-menu li.event-dsc::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_DeepStoneCrypt.png); }
 			.side-menu li.event-garden::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_GardenOfSalvation.png); }
 			.side-menu li.event-lastwish::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_LastWish.png); }
+			.side-menu li.event-vog::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_vaultofglass.png); }
 			.side-menu li.event-nightfall::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireTeamStrike.png); }
+			.side-menu li.event-override::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_vaultofglass.png); }
 			.side-menu li.event-wrathbornhunts::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_Lure.png); }
 			.side-menu li.event-exochallenge::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_SimulationChallenge.png); }
 			.side-menu li.event-empirehunts::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_empirehunts.png); }
@@ -461,9 +463,7 @@ function mainScript() {
 				display: block;
 			}
 			/* Hide legacy content */
-			.event-nightmarehunts,
-			.event-blindwell,
-			.event-altars {
+			.obsolete {
 				display: none;
 			}
 		</style>
@@ -509,19 +509,20 @@ function mainScript() {
 						<li class="event-dsc"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=22">Deep Stone Crypt</a></li>
 						<li class="event-garden"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=21">Garden of Salvation</a></li>
 						<li class="event-lastwish"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=20">Last Wish</a></li>
+						<li class="event-vog"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=28">Vault of Glass</a></li>
 					</ul>
 					<h2>PVE</h2>
 					<ul>
 						<li class="event-nightfall"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=4">Nightfall</a></li>
 						<li class="event-exotic"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=27">Exotic Quests</li>
-						<li class="event-battlegrounds"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=26">Battlegrounds <span class="season-tag">(S13)</span></a></li>
-						<li class="event-wrathbornhunts"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=24">Wrathborn Hunts <span class="season-tag">(S12)</span></a></li>
-						<li class="event-exochallenge"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=23">Exo Challenge</a></li>
-						<li class="event-empirehunts"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=25">Empire Hunts</a></li>
 						<li class="event-dungeons"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=15">Dungeons</a></li>
-						<li class="event-altars"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=14">Altars of Sorrow</a></li>
-						<li class="event-blindwell"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=7">Blind Well</a></li>
-						<li class="event-nightmarehunts"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=12">Nightmare Hunts</a></li>
+						<li class="event-exochallenge"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=23">Exo Challenge</a></li>
+						<li class="event-override"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=29">Override <span class="season-tag">(S14)</span></a></li>
+						<li class="event-battlegrounds obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=26">Battlegrounds <span class="season-tag">(S13)</span></a></li>
+						<li class="event-wrathbornhunts obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=24">Wrathborn Hunts <span class="season-tag">(S12)</span></a></li>						
+						<li class="event-altars obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=14">Altars of Sorrow</a></li>
+						<li class="event-blindwell obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=7">Blind Well</a></li>
+						<li class="event-nightmarehunts obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=12">Nightmare Hunts</a></li>
 					</ul>
 					<h2>PVP</h2>
 					<ul>
@@ -597,11 +598,17 @@ function mainScript() {
 				case '20':
 					document.querySelector(".event-lastwish").classList.add("active");
 					break;
+				case '28':
+					document.querySelector(".event-vog").classList.add("active");
+					break;
 				case '4':
 					document.querySelector(".event-nightfall").classList.add("active");
 					break;
 				case '27':
 					document.querySelector(".event-exotic").classList.add("active");
+					break;
+				case '29':
+					document.querySelector(".event-override").classList.add("active");
 					break;
 				case '26':
 					document.querySelector(".event-battlegrounds").classList.add("active");
@@ -672,7 +679,7 @@ function mainScript() {
 			}, 50);
 		}
 		
-		// Add links to look up guardians in fireteam on raid.report or dungeon.report
+		// Add links to look up guardians in fireteam on raid.report, dungeon.report and trials.report
 		function addReportLinks() {
 			var reportType, reportTypeName, platformId, reportSlug, isTrialsReport;
 			switch (currentActivity) {
@@ -806,7 +813,13 @@ function mainScript() {
 				if (e.which == 82) { // 'R' to toggle reloader
 					toggleReloaderState();
 				} else if (e.shiftKey && e.which == 49) {
-					window.location = "https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=22";
+					window.location = "https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=28";
+				} else if (e.shiftKey && e.which == 50) {
+					window.location = "https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=4";
+				} else if (e.shiftKey && e.which == 51) {
+					window.location = "https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=27";
+				} else if (e.shiftKey && e.which == 52) {
+					window.location = "https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=15";
 				} else if (e.which == 67) { // 'C' to Create Fireteam
 					let createButton = document.querySelector(".button.small.gold.btn_openCreateFireteam");
 					if (createButton !== null) {
