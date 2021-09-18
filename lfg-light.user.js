@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.95
+// @version      0.96
 // @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, keyboard shortcuts, remove unnecessary UI, add links to raid.report, dungeon.report, trials.report. Add page reloader for 10s interval until disabled or tab is closed.
 // @author       mariusffs
 // @run-at       document-start
@@ -335,6 +335,8 @@ function mainScript() {
 			.side-menu li.event-gambit::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteamGambit.png); }
 			.side-menu li.event-exotic::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_exoticquests.png); }
 			.side-menu li.event-battlegrounds::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_battlegrounds.png); }
+			.side-menu li.event-shatteredrealm::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteamShatteredRealm.png); }
+			.side-menu li.event-astralalignment::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteamAstralAlignment.png); }
 			.side-menu a { 
 				text-decoration: none;
 				color: inherit;
@@ -517,7 +519,10 @@ function mainScript() {
 						<li class="event-exotic"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=27">Exotic Quests</li>
 						<li class="event-dungeons"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=15">Dungeons</a></li>
 						<li class="event-exochallenge"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=23">Exo Challenge</a></li>
-						<li class="event-override"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=29">Override <span class="season-tag">(S14)</span></a></li>
+						<li class="event-empirehunts"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=25">Empire Hunts</a></li>
+						<li class="event-shatteredrealm"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=32">Shattered Realm <span class="season-tag">(S15)</span></a></li>
+						<li class="event-astralalignment"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=31">Astral Alignment <span class="season-tag">(S15)</span></a></li>
+						<li class="event-override obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=29">Override <span class="season-tag">(S14)</span></a></li>
 						<li class="event-battlegrounds obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=26">Battlegrounds <span class="season-tag">(S13)</span></a></li>
 						<li class="event-wrathbornhunts obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=24">Wrathborn Hunts <span class="season-tag">(S12)</span></a></li>						
 						<li class="event-altars obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=14">Altars of Sorrow</a></li>
@@ -588,6 +593,12 @@ function mainScript() {
 			switch (currentActivity) {
 				case '0':
 					document.querySelector(".event-all").classList.add("active");
+					break;
+				case '31':
+					document.querySelector(".event-astralalignment").classList.add("active");
+					break;
+				case '32':
+					document.querySelector(".event-shatteredrealm").classList.add("active");
 					break;
 				case '22':
 					document.querySelector(".event-dsc").classList.add("active");
