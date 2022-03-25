@@ -320,8 +320,8 @@ function mainScript() {
 			.side-menu li.event-garden::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_GardenOfSalvation.png); }
 			.side-menu li.event-lastwish::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_LastWish.png); }
 			.side-menu li.event-vog::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_vaultofglass.png); }
+			.side-menu li.event-vow::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_throneworldraid.png); }
 			.side-menu li.event-nightfall::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireTeamStrike.png); }
-			.side-menu li.event-override::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_vaultofglass.png); }
 			.side-menu li.event-wrathbornhunts::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_Lure.png); }
 			.side-menu li.event-exochallenge::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_SimulationChallenge.png); }
 			.side-menu li.event-empirehunts::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_empirehunts.png); }
@@ -337,6 +337,10 @@ function mainScript() {
 			.side-menu li.event-battlegrounds::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_battlegrounds.png); }
 			.side-menu li.event-shatteredrealm::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteamShatteredRealm.png); }
 			.side-menu li.event-astralalignment::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteamAstralAlignment.png); }
+
+			.side-menu li.event-campaign::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_campaign.png); }
+			.side-menu li.event-wellspring::before { background-image: url(https://www.bungie.net/img/theme/destiny/icons/fireteams/fireteam_icons_wellspring.png); }
+
 			.side-menu a { 
 				text-decoration: none;
 				color: inherit;
@@ -512,17 +516,22 @@ function mainScript() {
 						<li class="event-garden"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=21">Garden of Salvation</a></li>
 						<li class="event-lastwish"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=20">Last Wish</a></li>
 						<li class="event-vog"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=28">Vault of Glass</a></li>
+						<li class="event-vow"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=38">Vow of the Disciple</a></li>
 					</ul>
 					<h2>PVE</h2>
 					<ul>
 						<li class="event-nightfall"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=4">Nightfall</a></li>
 						<li class="event-exotic"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=27">Exotic Quests</li>
-						<li class="event-dungeons"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=15">Dungeons</a></li>
+						<li class="event-campaign"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=39">Campaign</a></li>
+						<li class="event-wellspring"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=40">The Wellspring</a></li>
+						<li class="event-dungeons goa"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=37">Grasp of Avarice</a></li>
+						<li class="event-dungeons prophecy"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=34">Prophecy</a></li>
+						<li class="event-dungeons shattered-throne"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=33">Shattered Throne</a></li>
+						<li class="event-dungeons pit-of-heresy"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=35">Pit of Heresy</a></li>
 						<li class="event-exochallenge"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=23">Exo Challenge</a></li>
 						<li class="event-empirehunts"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=25">Empire Hunts</a></li>
-						<li class="event-shatteredrealm"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=32">Shattered Realm <span class="season-tag">(S15)</span></a></li>
-						<li class="event-astralalignment"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=31">Astral Alignment <span class="season-tag">(S15)</span></a></li>
-						<li class="event-override obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=29">Override <span class="season-tag">(S14)</span></a></li>
+						<li class="event-shatteredrealm obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=32">Shattered Realm <span class="season-tag">(S15)</span></a></li>
+						<li class="event-astralalignment obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=31">Astral Alignment <span class="season-tag">(S15)</span></a></li>
 						<li class="event-battlegrounds obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=26">Battlegrounds <span class="season-tag">(S13)</span></a></li>
 						<li class="event-wrathbornhunts obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=24">Wrathborn Hunts <span class="season-tag">(S12)</span></a></li>						
 						<li class="event-altars obsolete"><a href="https://www.bungie.net/en/ClanV2/FireteamSearch?activityType=14">Altars of Sorrow</a></li>
@@ -633,9 +642,6 @@ function mainScript() {
 				case '25':
 					document.querySelector(".event-empirehunts").classList.add("active");
 					break;
-				case '15':
-					document.querySelector(".event-dungeons").classList.add("active");
-					break;
 				case '14':
 					document.querySelector(".event-altars").classList.add("active");
 					break;
@@ -656,6 +662,27 @@ function mainScript() {
 					break;
 				case '5':
 					document.querySelector(".event-anything").classList.add("active");
+					break;
+				case '39':
+					document.querySelector(".event-campaign").classList.add("active");
+					break;
+				case '37':
+					document.querySelector(".event-dungeons.goa").classList.add("active");
+					break;
+				case '34':
+					document.querySelector(".event-dungeons.prophecy").classList.add("active");
+					break;
+				case '33':
+					document.querySelector(".event-dungeons.shattered-throne").classList.add("active");
+					break;
+				case '35':
+					document.querySelector(".event-dungeons.pit-of-heresy").classList.add("active");
+					break;
+				case '38':
+					document.querySelector(".event-vow").classList.add("active");
+					break;
+				case '40':
+					document.querySelector(".event-wellspring").classList.add("active");
 					break;
 			}
 		}
