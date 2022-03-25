@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LFG Light (for Bungie's Destiny 2)
 // @namespace    https://github.com/mariusffs/lfg-light
-// @version      0.96
+// @version      0.97
 // @description  A compact redesign of Bungie's LFG Fireteam site for laptop screens. Some UX improvements and added features: Reduced use of dropdowns, more 1-click scenarios, keyboard shortcuts, remove unnecessary UI, add links to raid.report, dungeon.report, trials.report. Add page reloader for 10s interval until disabled or tab is closed.
 // @author       mariusffs
 // @run-at       document-start
